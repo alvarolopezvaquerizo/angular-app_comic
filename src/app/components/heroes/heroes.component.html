@@ -1,0 +1,32 @@
+<h1>Héroes <small>Marvel y DC</small></h1>
+
+<hr>
+
+<div class="card-columns">
+
+    <!--Con "*ngFor" nos pinta todas las cards que hayamos declarado en el archivo "heroes.service.ts" y luego ponemos "let el nombre que queramos aqui nosotros hemos elegido   heroe of heroes" que la hemos declarado en el archivo heroes.component.ts
+    Con let i = index le indicamos la posicion de cada objeto
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+        Con [src]="heroe.img" le estamos diciendo que las imagenes las maneje Angular y con heroe.img le estamos diciendo que nos coja las imagenes que hemos declarado en el archivo heroes.component.ts que es una array de objetos.
+        Con el nombre del heroe funciona de la misma forma que las imagenes
+        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+        <div class="card-body">
+            Para el nombre, la bio que es una descripcion y la aparicion funciona de esta forma {{ heroe.nombre/bio/aparicion }} tal y como se muestra abajo-->
+    <!--<h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p class="card-text">{{ heroe.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+            Hacemos el evento click indicando el heroe y su posicion segun el boton que pulsemos
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver más...</button>
+            La propiedad [routerLink]="['/heroe',i]" le indicamos la posicion de cada heroe
+            <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más link...</a>
+        </div>
+    </div>
+-->
+
+    <!--Estamos duplicando las tarjetas con el ngFor-->
+    <!--Con [heroe]="heroe" estoy trayendo del componente hijo llamado heroe las tarjetas al padre que se llama heroes-->
+    <!--Con [index]="i" estoy trayendo el indice del componente hijo al padre-->
+    <!--Con (heroeSeleccionado)="verHeroe( $event )" estoy recibiendo el evento que estoy emitiendo desde heroeSeleccionado-->
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe( $event )" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
+
+</div>

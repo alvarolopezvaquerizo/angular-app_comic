@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/A-64.png" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <!--Con routerLinkActive="active" hace que este activo o no dependiendo de la ruta donde estemos-->
+            <!--Con [routerLink]="['xxx']" le estamos indicando la ruta de ese enlace (hay que programarlo tambien en el archivo app.routes.ts-->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['home']">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['about']">About</a>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <!--Con (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto le estamos diciendo que ese input va a ser un buscador y la propiedad keyup.enter hace que busque cuando presionamos la tecla enter-->
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar héroe" (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto>
+            <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+
+        </form>
+    </div>
+</nav>
